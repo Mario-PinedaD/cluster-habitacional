@@ -3,5 +3,5 @@
 
     require_once "views/bienvenida.php";
        
-    require_once "footermain.php";
+    require_once "footermain.php"; 
 ?>
