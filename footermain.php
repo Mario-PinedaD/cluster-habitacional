@@ -1,3 +1,4 @@
+            <script src="js/project.js"></script>
             <footer class="footer">
                 <p>&copy; 2025 Sistema de Administración de Cluster</p>
             </footer>
