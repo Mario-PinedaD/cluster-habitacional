@@ -1,15 +1,21 @@
-<?php
-    function inputPassword($valor = "") {
-        return "
-            <div class='mb-1'>
-                <label for='password' class='form-label m-0'>Contraseña</label>
-                <input type='password' class='form-control form-control-sm' id='password' name='password' 
-                pattern='/^(?=.*[A-Z])(?=.*\d).{8,}$/' value='$valor' required>
-            </div>";
-    }
+<?php 
+function password($valor = "" ){
+    $caja = "
+        <div class='mb-1'>
+            <label for='password' class='form-label m-0'>Password</label>
+            <input type='password' class='form-control form-control-sm' id='password' name='password' placeholder='Captura palabra de acceso (Password)' title='Captura palabra de acceso (Password)' value='$valor' required>
+        </div>    
+    ";
+    return $caja;
+}
 
-    function validarPassword($valor) {
-        // Mínimo 8 caracteres, al menos 1 mayúscula y 1 número
-        return preg_match("/^(?=.*[A-Z])(?=.*\d).{8,}$/", $valor);
-    }
+function validarPassword($valor = ""){
+    $esValido = false;
+    if ($valor <> "") {
+        $esValido = true;
+    } 
+    return $esValido;
+    
+}
+
 ?>

@@ -1,5 +1,5 @@
 <?php
-    function inputEmail($valor = "") {
+    function email($valor = "") {
         return "
             <div class='mb-1'>
                 <label for='email' class='form-label m-0'>Correo electrónico</label>
