@@ -1,38 +1,25 @@
 body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    min-height: 100%;
+}
+.body-login {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items:center;
+    min-height: 90%;
     margin: 0;
 }
-
 .container {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 350px;
     padding: 20px;
-}
-
-.tabs {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.tab {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 2px solid #ddd;
-}
-
-.tab.active {
-    border-bottom: 2px solid #4285f4;
-    color: #4285f4;
-    font-weight: bold;
 }
 
 .form-container {
@@ -52,7 +39,7 @@ input {
     box-sizing: border-box;
 }
 
-button {
+.button-login {
     width: 100%;
     padding: 12px;
     background-color: #4285f4;
@@ -64,7 +51,7 @@ button {
     margin-top: 10px;
 }
 
-button:hover {
+.button-login:hover {
     background-color: #3367d6;
 }
 
@@ -73,21 +60,19 @@ button:hover {
     margin: 10px 0;
 }
 
-.forgot-password a {
-    color: #666;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
-}
-
-
+/* ======= css para el footer*/
 footer{
     align-items: end;
     text-align: center;
     margin-top: 20px;
     font-size: 14px;
     color: #666;
+}
+
+/* PANEL COMITÉ */
+.header-bg-comite{
+    background-color: #4285f4;
+    color: white;
+    padding: 10px;
+    
 }
