@@ -90,3 +90,78 @@ INSERT INTO casas (c_id, c_numero, c_calle, c_ocupada, fk_u_rfc) VALUES
 (58, '608', 'Calle Oeste', FALSE, NULL),
 (59, '609', 'Calle Oeste', FALSE, NULL),
 (60, '610', 'Calle Oeste', FALSE, NULL);
+
+-- Insertar registros de ejemplo en la tabla PAGOS
+INSERT INTO pagos (fk_u_rfc, fk_c_id, p_monto, p_recargo, p_mes_pagado, p_fecha_pago, p_metodo_pago, p_comprobante, p_acuse_enviado) VALUES
+-- Pagos al corriente
+('GAMA800101ABC', 1, 2500.00, 0.00, '2023-01-01', '2023-01-05 10:30:00', 'transferencia', 'comp001.pdf', TRUE),
+('ROBL810202DEF', 2, 2500.00, 0.00, '2023-01-01', '2023-01-05 11:15:00', 'efectivo', NULL, TRUE),
+('HEGJ820303GHI', 3, 2500.00, 0.00, '2023-01-01', '2023-01-06 09:45:00', 'tarjeta', 'comp003.pdf', TRUE),
+
+-- Pagos con recargo
+('GOMS830404JKL', 4, 2500.00, 500.00, '2023-01-01', '2023-01-15 14:20:00', 'transferencia', 'comp004.pdf', TRUE),
+('DAPG840505MNO', 5, 2500.00, 750.00, '2023-01-01', '2023-01-20 16:10:00', 'efectivo', NULL, FALSE),
+
+-- Pagos de meses diferentes
+('VASM850606PQR', 6, 2500.00, 0.00, '2023-02-01', '2023-02-03 10:00:00', 'transferencia', 'comp006.pdf', TRUE),
+('LORS860707STU', 7, 2500.00, 0.00, '2023-02-01', '2023-02-04 12:30:00', 'tarjeta', 'comp007.pdf', TRUE),
+('CARM870808VWX', 8, 2500.00, 250.00, '2023-02-01', '2023-02-12 15:45:00', 'transferencia', 'comp008.pdf', TRUE),
+
+-- Pago del presidente (miembro del comité)
+('PRE1234567890', 19, 2500.00, 0.00, '2023-01-01', '2023-01-03 08:15:00', 'transferencia', 'comp019.pdf', TRUE);
+
+-- Insertar registros de ejemplo en la tabla EGRESOS
+INSERT INTO egresos (e_monto, e_beneficiario, e_fecha, e_motivo, e_responsable, e_comprobante, fk_u_rfc) VALUES
+-- Mantenimiento
+(1200.50, 'Servicios de Jardinería SA', '2023-01-10 12:00:00', 'Podado de áreas verdes y mantenimiento de jardines', 'presidente', 'egr001.pdf', 'PRE1234567890'),
+(850.00, 'Limpieza Profesional', '2023-01-15 13:30:00', 'Limpieza de áreas comunes y alberca', 'secretario', 'egr002.pdf', 'SEC1234567890'),
+
+-- Reparaciones
+(3200.00, 'Electricidad y Más', '2023-01-20 14:15:00', 'Reparación de luminarias en calle principal', 'presidente', 'egr003.pdf', 'PRE1234567890'),
+(1500.00, 'Fontanería Rápida', '2023-02-05 10:45:00', 'Reparación de fuga en tubería principal', 'vocal', 'egr004.pdf', 'VOC1234567890'),
+
+-- Suministros
+(780.50, 'Suministros de Oficina', '2023-02-10 11:20:00', 'Material de oficina para administración', 'secretario', 'egr005.pdf', 'SEC1234567890'),
+(450.00, 'Agua Purificada', '2023-02-12 09:30:00', 'Garrafones para reunión de comité', 'vocal', NULL, 'VOC1234567890'),
+
+-- Eventos
+(2000.00, 'Fiestas y Eventos', '2023-02-15 16:00:00', 'Organización de reunión vecinal', 'presidente', 'egr007.pdf', 'PRE1234567890');
+
+-- Insertar registros de ejemplo en la tabla RESERVACIONES
+INSERT INTO reservaciones (fk_u_rfc, fk_c_id, r_tipo, r_fecha, r_hora_inicio, r_hora_fin, r_estado, r_fecha_solicitud) VALUES
+-- Reservas aprobadas
+('GAMA800101ABC', 1, 'palapa', '2023-03-05', '14:00:00', '18:00:00', 'aprobada', '2023-02-28 10:15:00'),
+('ROBL810202DEF', 2, 'alberca', '2023-03-06', '10:00:00', '12:00:00', 'aprobada', '2023-02-28 11:30:00'),
+('HEGJ820303GHI', 3, 'palapa', '2023-03-12', '16:00:00', '20:00:00', 'aprobada', '2023-03-01 09:45:00'),
+
+-- Reservas pendientes
+('GOMS830404JKL', 4, 'alberca', '2023-03-18', '11:00:00', '13:00:00', 'pendiente', '2023-03-10 14:20:00'),
+('DAPG840505MNO', 5, 'palapa', '2023-03-20', '15:00:00', '19:00:00', 'pendiente', '2023-03-11 16:10:00'),
+
+-- Reservas rechazadas (por horario conflictivo)
+('VASM850606PQR', 6, 'alberca', '2023-03-06', '11:30:00', '13:30:00', 'rechazada', '2023-03-01 10:00:00'),
+('LORS860707STU', 7, 'palapa', '2023-03-12', '17:00:00', '21:00:00', 'rechazada', '2023-03-02 12:30:00'),
+
+-- Reserva de miembro del comité
+('PRE1234567890', 19, 'palapa', '2023-03-25', '12:00:00', '16:00:00', 'aprobada', '2023-03-15 08:15:00');
+
+-- Insertar registros de ejemplo en la tabla SOLICITUDES
+INSERT INTO solicitudes (fk_u_rfc, fk_c_id, s_titulo, s_descripcion, s_fecha, s_estado, s_respuesta, s_fecha_respuesta, fk_responsable_rfc) VALUES
+-- Solicitudes completadas
+('GAMA800101ABC', 1, 'Fuga de agua', 'Hay una fuga de agua en el jardín de mi casa', '2023-01-05 08:30:00', 'completada', 'Reparación completada por fontanero el 06/01/2023', '2023-01-07 10:00:00', 'PRE1234567890'),
+('ROBL810202DEF', 2, 'Lámpara rota', 'La lámpara en la entrada de mi casa no funciona', '2023-01-10 09:15:00', 'completada', 'Lámpara reemplazada el 11/01/2023', '2023-01-11 14:30:00', 'SEC1234567890'),
+
+-- Solicitudes en proceso
+('HEGJ820303GHI', 3, 'Poda de árbol', 'Las ramas del árbol frente a mi casa están muy largas', '2023-02-15 10:45:00', 'en_proceso', 'Programada para poda en la próxima semana', '2023-02-16 11:20:00', 'VOC1234567890'),
+('GOMS830404JKL', 4, 'Ruido excesivo', 'Vecinos hacen ruido excesivo después de las 11pm', '2023-02-20 07:30:00', 'en_proceso', 'Se hablará con los vecinos involucrados', '2023-02-21 09:15:00', 'PRE1234567890'),
+
+-- Solicitudes pendientes
+('DAPG840505MNO', 5, 'Bache en calle', 'Hay un bache grande en la calle frente a mi casa', '2023-03-01 14:20:00', 'pendiente', NULL, NULL, NULL),
+('VASM850606PQR', 6, 'Solicitud de estacionamiento', 'Necesito un espacio de estacionamiento adicional', '2023-03-05 16:10:00', 'pendiente', NULL, NULL, NULL),
+
+-- Solicitudes rechazadas
+('LORS860707STU', 7, 'Cambio de casa', 'Quisiera cambiarme a una casa más grande', '2023-01-25 11:30:00', 'rechazada', 'No hay casas más grandes disponibles actualmente', '2023-01-27 15:00:00', 'SEC1234567890'),
+('CARM870808VWX', 8, 'Instalación de alarma', 'Quiero instalar una alarma en mi casa', '2023-02-10 09:45:00', 'rechazada', 'No está permitido modificar las instalaciones eléctricas sin autorización', '2023-02-12 10:30:00', 'VOC1234567890'),
+
+-- Solicitud de miembro del comité
+('PRE1234567890', 19, 'Reunión de vecinos', 'Organizar reunión mensual de vecinos', '2023-03-10 08:15:00', 'completada', 'Reunión programada para el 25/03/2023', '2023-03-12 09:00:00', 'SEC1234567890');
