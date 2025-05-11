@@ -1,8 +1,9 @@
 <?php
 session_start();
 require_once 'db/conexion.php';
-require_once 'headermain.php';
-
+$ruta_base = '';
+//require_once 'headermain.php';
+include($ruta_base . 'headermain.php');
 require_once 'inputs/email.php';
 require_once 'inputs/password.php';
 require_once 'inputs/btnenviar.php';
@@ -28,6 +29,7 @@ if(isset($_POST['btnenviar'])) {
                 $_SESSION['u_rol'] = $u_rol;
                 if($u_rol == 'inquilino'){
                     header("Location:views/inquilino/index.php");
+                    echo "HOLA";
                 }else{
                     header("Location: views/comite/index.php");
                 }
@@ -40,6 +42,7 @@ if(isset($_POST['btnenviar'])) {
         }
         $stmt->close();
         $cn->close();
+        echo "SI JALA WEY";
     } else {
         $mensajeError = "Email o contraseña inválidos.";
     }
