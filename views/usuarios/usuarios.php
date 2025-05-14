@@ -74,7 +74,7 @@ require_once "../recursos/navbar.php";
               <button type="submit" class="btn btn-primary">Añadir</button>
             </div>
           </form>
-
         </div>
       </div>
     </div>
+
