@@ -15,10 +15,10 @@ function createnavbar() {
                 <a class='nav-link active' aria-current='page' href='../comite'>Inicio</a>
                 </li>
                 <li class='nav-item'>
-                  <a class='nav-link' href='../usuarios'>Usuarios</a>
+                  <a class='nav-link' href='../c-usuarios'>Usuarios</a>
                 </li>
                 <li class='nav-item'>
-                  <a class='nav-link' href='#'>Pagos</a>
+                  <a class='nav-link' href='../c-pagos'>Pagos</a>
                 </li>
                 <li class='nav-item'>
                   <a class='nav-link' href='#' tabindex='-1' aria-disabled='true'>Solicitudes</a>
