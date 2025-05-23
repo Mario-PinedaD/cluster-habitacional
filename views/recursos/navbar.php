@@ -20,9 +20,6 @@ function createnavbar() {
                 <li class='nav-item'>
                   <a class='nav-link' href='../c-pagos'>Pagos</a>
                 </li>
-                <li class='nav-item'>
-                  <a class='nav-link' href='#' tabindex='-1' aria-disabled='true'>Solicitudes</a>
-                </li>
               </ul>
             </div>
         </div>
